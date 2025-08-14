@@ -3,14 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convert PDF to Word documents online for free. Advanced PDF to DOCX converter with OCR support, batch processing, and high-quality output.">
-    <meta name="keywords" content="PDF to Word, PDF to DOCX, PDF converter, online PDF editor, document conversion">
-    <meta name="robots" content="index, follow">
-    <title>NexusConvert | Advanced PDF to Word Converter with OCR Technology</title>
-    <link rel="canonical" href="https://yourdomain.com/pdf-to-word">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>NexusConvert | Advanced Document Converter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -71,7 +64,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 1.8rem;
             color: var(--secondary);
@@ -121,68 +113,8 @@
             cursor: pointer;
         }
 
-        /* Home Page Styles */
-        .home-page {
-            display: flex;
-            flex-direction: column;
-            min-height: 80vh;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .hero-section p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-        }
-
-        .tool-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .tool-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .tool-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
         /* Converter Page Styles */
         .converter-page {
-            display: none;
             padding: 40px 20px;
         }
 
@@ -198,7 +130,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-family: 'Orbitron', sans-serif;
         }
 
         .hero p {
@@ -224,6 +155,33 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
+        .tool-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tool-option {
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .tool-option.active {
+            background: var(--primary);
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+        }
+
+        .tool-option:hover {
+            background: rgba(108, 92, 231, 0.2);
+        }
+
         .drag-drop-area {
             border: 2px dashed var(--glass-border);
             border-radius: 15px;
@@ -234,36 +192,6 @@
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
-        }
-
-        .drag-drop-area::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                transparent,
-                transparent,
-                transparent,
-                rgba(108, 92, 231, 0.1),
-                transparent,
-                transparent,
-                transparent
-            );
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) rotate(30deg);
-            }
-            100% {
-                transform: translateX(100%) rotate(30deg);
-            }
         }
 
         .drag-drop-area:hover {
@@ -392,68 +320,6 @@
             background: rgba(108, 92, 231, 0.2);
         }
 
-        .advanced-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .option-group {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .option-group h4 {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            color: var(--secondary);
-        }
-
-        .checkbox-option, .radio-option {
-            margin-bottom: 10px;
-        }
-
-        .checkbox-option label, .radio-option label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .custom-checkbox, .custom-radio {
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--gray);
-            border-radius: 4px;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .custom-radio {
-            border-radius: 50%;
-        }
-
-        input[type="checkbox"]:checked + .custom-checkbox,
-        input[type="radio"]:checked + .custom-radio {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        input[type="checkbox"]:checked + .custom-checkbox::after,
-        input[type="radio"]:checked + .custom-radio::after {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 10px;
-        }
-
         .file-list {
             margin-top: 20px;
             max-height: 200px;
@@ -501,112 +367,6 @@
             margin-top: 30px;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .feature-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-column a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        /* Progress bar */
         .progress-container {
             width: 100%;
             background: rgba(0, 0, 0, 0.2);
@@ -631,7 +391,6 @@
             color: var(--gray);
         }
 
-        /* Download section */
         .download-section {
             text-align: center;
             margin-top: 20px;
@@ -646,7 +405,6 @@
             flex-wrap: wrap;
         }
 
-        /* Toast notification */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -690,17 +448,6 @@
             color: var(--error);
         }
 
-        /* Responsive styles */
-        @media (max-width: 992px) {
-            .hero h1, .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            
-            .advanced-options {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -710,11 +457,11 @@
                 display: block;
             }
             
-            .hero h1, .hero-section h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
             
-            .hero p, .hero-section p {
+            .hero p {
                 font-size: 1rem;
             }
             
@@ -740,58 +487,21 @@
             .format-options {
                 grid-template-columns: 1fr;
             }
-            
-            .feature-card, .tool-card {
-                padding: 20px;
-            }
-        }
-
-        /* Animation classes */
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(108, 92, 231, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
-            }
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo" id="homeLink">
+            <a href="#" class="logo">
                 <i class="fas fa-file-export"></i>
                 <span>NexusConvert</span>
             </a>
             <nav>
                 <ul>
-                    <li><a href="#" id="navHome">Home</a></li>
-                    <li><a href="#" id="navConverter">PDF to Word</a></li>
+                    <li><a href="#">Home</a></li>
                     <li><a href="#">Tools</a></li>
+                    <li><a href="#">Pricing</a></li>
                     <li><a href="#">Support</a></li>
                 </ul>
             </nav>
@@ -802,48 +512,39 @@
     </header>
 
     <main class="container">
-        <!-- Home Page -->
-        <section class="home-page" id="homePage">
-            <div class="hero-section">
-                <h1>Transform Your Documents</h1>
-                <p>Convert, edit and manage your files with our powerful online tools. Perfect formatting guaranteed.</p>
-                <button class="btn" id="startConvertingBtn">
-                    <i class="fas fa-exchange-alt"></i> Start Converting Now
-                </button>
-            </div>
-
-            <div class="tool-cards">
-                <div class="tool-card" data-tool="pdf-word">
-                    <i class="fas fa-file-word"></i>
-                    <h3>PDF to Word</h3>
-                    <p>Convert PDF files to editable Word documents while preserving formatting.</p>
-                </div>
-                <div class="tool-card" data-tool="word-pdf">
-                    <i class="fas fa-file-pdf"></i>
-                    <h3>Word to PDF</h3>
-                    <p>Transform Word documents into professional PDF files.</p>
-                </div>
-                <div class="tool-card" data-tool="pdf-ppt">
-                    <i class="fas fa-file-powerpoint"></i>
-                    <h3>PDF to PowerPoint</h3>
-                    <p>Convert PDF presentations into editable PowerPoint slides.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Converter Page -->
-        <section class="converter-page" id="converterPage">
+        <section class="converter-page">
             <div class="hero">
-                <h1>Advanced PDF to Word Converter</h1>
-                <p>Transform your PDF documents into editable Word files with perfect formatting preservation. Our AI-powered technology ensures highest conversion quality.</p>
+                <h1>Advanced Document Converter</h1>
+                <p>Transform your files between different formats with perfect quality preservation. Our technology ensures highest conversion quality.</p>
             </div>
 
-            <div class="converter-container floating">
+            <div class="converter-container">
+                <div class="tool-selector" id="toolSelector">
+                    <div class="tool-option active" data-tool="pdf-word">
+                        <i class="fas fa-file-pdf"></i> PDF to Word
+                    </div>
+                    <div class="tool-option" data-tool="word-pdf">
+                        <i class="fas fa-file-word"></i> Word to PDF
+                    </div>
+                    <div class="tool-option" data-tool="pdf-excel">
+                        <i class="fas fa-file-pdf"></i> PDF to Excel
+                    </div>
+                    <div class="tool-option" data-tool="excel-pdf">
+                        <i class="fas fa-file-excel"></i> Excel to PDF
+                    </div>
+                    <div class="tool-option" data-tool="image-pdf">
+                        <i class="fas fa-file-image"></i> Image to PDF
+                    </div>
+                    <div class="tool-option" data-tool="pdf-image">
+                        <i class="fas fa-file-pdf"></i> PDF to Image
+                    </div>
+                </div>
+
                 <div class="drag-drop-area" id="dropArea">
                     <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Drag & Drop Your PDF Files</h3>
+                    <h3>Drag & Drop Your Files</h3>
                     <p>or click to browse your computer</p>
-                    <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
+                    <input type="file" id="fileInput" multiple style="display: none;">
                     <button class="btn btn-secondary" id="browseBtn">Select Files</button>
                 </div>
 
@@ -863,99 +564,10 @@
                     </div>
                 </div>
 
-                <div class="options-section">
+                <div class="options-section" id="optionsSection">
                     <h3><i class="fas fa-cog"></i> Conversion Options</h3>
-                    <div class="format-options">
-                        <div class="format-option">
-                            <input type="radio" id="formatDocx" name="outputFormat" value="docx" checked>
-                            <label for="formatDocx">DOCX (Word)</label>
-                        </div>
-                        <div class="format-option">
-                            <input type="radio" id="formatDoc" name="outputFormat" value="doc">
-                            <label for="formatDoc">DOC (Word 97-2003)</label>
-                        </div>
-                        <div class="format-option">
-                            <input type="radio" id="formatOdt" name="outputFormat" value="odt">
-                            <label for="formatOdt">ODT (OpenDocument)</label>
-                        </div>
-                        <div class="format-option">
-                            <input type="radio" id="formatTxt" name="outputFormat" value="txt">
-                            <label for="formatTxt">TXT (Plain Text)</label>
-                        </div>
-                        <div class="format-option">
-                            <input type="radio" id="formatRtf" name="outputFormat" value="rtf">
-                            <label for="formatRtf">RTF (Rich Text)</label>
-                        </div>
-                    </div>
-
-                    <div class="advanced-options">
-                        <div class="option-group">
-                            <h4>Text Recognition</h4>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="ocrEnabled" checked>
-                                <label for="ocrEnabled">
-                                    <span class="custom-checkbox"></span>
-                                    Enable OCR (for scanned PDFs)
-                                </label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="ocrQualityHigh" name="ocrQuality" value="high" checked>
-                                <label for="ocrQualityHigh">
-                                    <span class="custom-radio"></span>
-                                    High Accuracy (slower)
-                                </label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="ocrQualityFast" name="ocrQuality" value="fast">
-                                <label for="ocrQualityFast">
-                                    <span class="custom-radio"></span>
-                                    Fast Processing
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="option-group">
-                            <h4>Formatting Options</h4>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="preserveLayout" checked>
-                                <label for="preserveLayout">
-                                    <span class="custom-checkbox"></span>
-                                    Preserve original layout
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="extractImages" checked>
-                                <label for="extractImages">
-                                    <span class="custom-checkbox"></span>
-                                    Extract images
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="recognizeHeadings">
-                                <label for="recognizeHeadings">
-                                    <span class="custom-checkbox"></span>
-                                    Auto-detect headings
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="option-group">
-                            <h4>Output Options</h4>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="mergeFiles">
-                                <label for="mergeFiles">
-                                    <span class="custom-checkbox"></span>
-                                    Merge all files into one
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="zipOutput" checked>
-                                <label for="zipOutput">
-                                    <span class="custom-checkbox"></span>
-                                    Download as ZIP archive
-                                </label>
-                            </div>
-                        </div>
+                    <div id="dynamicOptions">
+                        <!-- Options will be dynamically inserted here based on tool -->
                     </div>
                 </div>
 
@@ -968,77 +580,11 @@
                     </button>
                 </div>
             </div>
-
-            <section class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3>Smart Formatting</h3>
-                    <p>Our advanced algorithms preserve fonts, tables, images, and layout from your original PDF with incredible accuracy.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>OCR Technology</h3>
-                    <p>Convert scanned PDFs and images into editable text with our powerful optical character recognition.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Secure Processing</h3>
-                    <p>Your files are automatically deleted from our servers after processing. We never store or share your documents.</p>
-                </div>
-            </section>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>NexusConvert</h4>
-                    <p>Advanced document conversion tools powered by AI technology.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Tools</h4>
-                    <ul>
-                        <li><a href="#">PDF to Word</a></li>
-                        <li><a href="#">Word to PDF</a></li>
-                        <li><a href="#">PDF to Excel</a></li>
-                        <li><a href="#">PDF to PowerPoint</a></li>
-                        <li><a href="#">PDF to JPG</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="copyright">
                 <p>&copy; 2023 NexusConvert. All rights reserved.</p>
             </div>
@@ -1047,52 +593,14 @@
 
     <div class="toast" id="toast"></div>
 
-    <!-- Add JSZip library for real ZIP file creation -->
+    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Page Navigation
-            const homePage = document.getElementById('homePage');
-            const converterPage = document.getElementById('converterPage');
-            const homeLink = document.getElementById('homeLink');
-            const navHome = document.getElementById('navHome');
-            const navConverter = document.getElementById('navConverter');
-            const startConvertingBtn = document.getElementById('startConvertingBtn');
-            const toolCards = document.querySelectorAll('.tool-card');
-
-            // Show home page by default
-            homePage.style.display = 'block';
-            converterPage.style.display = 'none';
-
-            // Navigation event listeners
-            homeLink.addEventListener('click', showHomePage);
-            navHome.addEventListener('click', showHomePage);
-            navConverter.addEventListener('click', showConverterPage);
-            startConvertingBtn.addEventListener('click', showConverterPage);
-            
-            toolCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const tool = this.getAttribute('data-tool');
-                    showConverterPage();
-                });
-            });
-
-            function showHomePage(e) {
-                if (e) e.preventDefault();
-                homePage.style.display = 'block';
-                converterPage.style.display = 'none';
-                document.title = "NexusConvert | Document Conversion Tools";
-            }
-
-            function showConverterPage(e) {
-                if (e) e.preventDefault();
-                homePage.style.display = 'none';
-                converterPage.style.display = 'block';
-                document.title = "NexusConvert | PDF to Word Converter";
-            }
-
-            // Converter Functionality
+            // DOM Elements
             const dropArea = document.getElementById('dropArea');
             const fileInput = document.getElementById('fileInput');
             const browseBtn = document.getElementById('browseBtn');
@@ -1104,9 +612,16 @@
             const progressText = document.getElementById('progressText');
             const downloadSection = document.getElementById('downloadSection');
             const downloadOptions = document.getElementById('downloadOptions');
+            const dynamicOptions = document.getElementById('dynamicOptions');
+            const toolOptions = document.querySelectorAll('.tool-option');
             
+            // State
             let files = [];
             let convertedFiles = [];
+            let currentTool = 'pdf-word';
+
+            // Initialize
+            updateOptionsForTool(currentTool);
 
             // Event Listeners
             browseBtn.addEventListener('click', () => fileInput.click());
@@ -1116,8 +631,138 @@
             dropArea.addEventListener('drop', handleDrop);
             convertBtn.addEventListener('click', convertFiles);
             clearBtn.addEventListener('click', clearFiles);
+            
+            toolOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    toolOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    currentTool = option.getAttribute('data-tool');
+                    updateOptionsForTool(currentTool);
+                    clearFiles();
+                    updateFileInputAccept();
+                });
+            });
 
             // Functions
+            function updateFileInputAccept() {
+                switch(currentTool) {
+                    case 'pdf-word':
+                    case 'pdf-excel':
+                    case 'pdf-image':
+                        fileInput.accept = '.pdf';
+                        break;
+                    case 'word-pdf':
+                        fileInput.accept = '.doc,.docx,.odt,.rtf';
+                        break;
+                    case 'excel-pdf':
+                        fileInput.accept = '.xls,.xlsx,.ods,.csv';
+                        break;
+                    case 'image-pdf':
+                        fileInput.accept = 'image/*';
+                        break;
+                }
+            }
+
+            function updateOptionsForTool(tool) {
+                let optionsHTML = '';
+                
+                switch(tool) {
+                    case 'pdf-word':
+                        optionsHTML = `
+                            <div class="format-options">
+                                <div class="format-option">
+                                    <input type="radio" id="formatDocx" name="outputFormat" value="docx" checked>
+                                    <label for="formatDocx">DOCX (Word)</label>
+                                </div>
+                                <div class="format-option">
+                                    <input type="radio" id="formatDoc" name="outputFormat" value="doc">
+                                    <label for="formatDoc">DOC (Word 97-2003)</label>
+                                </div>
+                                <div class="format-option">
+                                    <input type="radio" id="formatOdt" name="outputFormat" value="odt">
+                                    <label for="formatOdt">ODT (OpenDocument)</label>
+                                </div>
+                            </div>
+                            <div class="checkbox-option" style="margin-top: 20px;">
+                                <input type="checkbox" id="ocrEnabled" checked>
+                                <label for="ocrEnabled">
+                                    <span class="custom-checkbox"></span>
+                                    Enable OCR (for scanned PDFs)
+                                </label>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'word-pdf':
+                        optionsHTML = `
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="preserveLayout" checked>
+                                <label for="preserveLayout">
+                                    <span class="custom-checkbox"></span>
+                                    Preserve original layout
+                                </label>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'pdf-excel':
+                        optionsHTML = `
+                            <div class="format-options">
+                                <div class="format-option">
+                                    <input type="radio" id="formatXlsx" name="outputFormat" value="xlsx" checked>
+                                    <label for="formatXlsx">XLSX (Excel)</label>
+                                </div>
+                                <div class="format-option">
+                                    <input type="radio" id="formatCsv" name="outputFormat" value="csv">
+                                    <label for="formatCsv">CSV</label>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'excel-pdf':
+                        optionsHTML = `
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="landscape" checked>
+                                <label for="landscape">
+                                    <span class="custom-checkbox"></span>
+                                    Landscape orientation
+                                </label>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'image-pdf':
+                        optionsHTML = `
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="mergeImages" checked>
+                                <label for="mergeImages">
+                                    <span class="custom-checkbox"></span>
+                                    Merge all images into single PDF
+                                </label>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'pdf-image':
+                        optionsHTML = `
+                            <div class="format-options">
+                                <div class="format-option">
+                                    <input type="radio" id="formatJpg" name="outputFormat" value="jpg" checked>
+                                    <label for="formatJpg">JPG</label>
+                                </div>
+                                <div class="format-option">
+                                    <input type="radio" id="formatPng" name="outputFormat" value="png">
+                                    <label for="formatPng">PNG</label>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                }
+                
+                dynamicOptions.innerHTML = optionsHTML;
+            }
+
             function handleFileSelect(e) {
                 const selectedFiles = e.target.files;
                 if (selectedFiles.length > 0) {
@@ -1149,10 +794,13 @@
             }
 
             function addFiles(newFiles) {
-                // Check if files are PDFs
+                // Check file types based on current tool
+                const validExtensions = getValidExtensions();
+                
                 for (let i = 0; i < newFiles.length; i++) {
-                    if (!newFiles[i].name.toLowerCase().endsWith('.pdf')) {
-                        showToast('Please upload only PDF files', 'error');
+                    const fileExt = newFiles[i].name.split('.').pop().toLowerCase();
+                    if (!validExtensions.includes(fileExt)) {
+                        showToast(`Invalid file type for ${currentTool} conversion`, 'error');
                         return;
                     }
                 }
@@ -1166,19 +814,54 @@
                 }
             }
 
+            function getValidExtensions() {
+                switch(currentTool) {
+                    case 'pdf-word':
+                    case 'pdf-excel':
+                    case 'pdf-image':
+                        return ['pdf'];
+                    case 'word-pdf':
+                        return ['doc', 'docx', 'odt', 'rtf'];
+                    case 'excel-pdf':
+                        return ['xls', 'xlsx', 'ods', 'csv'];
+                    case 'image-pdf':
+                        return ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+                    default:
+                        return [];
+                }
+            }
+
             function updateFileList() {
                 fileList.innerHTML = '';
                 
                 if (files.length === 0) {
-                                    return;
+                    return;
                 }
 
                 files.forEach((file, index) => {
                     const fileItem = document.createElement('div');
                     fileItem.className = 'file-item';
                     
+                    let iconClass = 'fas fa-file';
+                    switch(currentTool) {
+                        case 'pdf-word':
+                        case 'pdf-excel':
+                        case 'pdf-image':
+                            iconClass = 'fas fa-file-pdf';
+                            break;
+                        case 'word-pdf':
+                            iconClass = 'fas fa-file-word';
+                            break;
+                        case 'excel-pdf':
+                            iconClass = 'fas fa-file-excel';
+                            break;
+                        case 'image-pdf':
+                            iconClass = 'fas fa-file-image';
+                            break;
+                    }
+                    
                     const fileIcon = document.createElement('i');
-                    fileIcon.className = 'fas fa-file-pdf';
+                    fileIcon.className = iconClass;
                     
                     const fileInfo = document.createElement('div');
                     fileInfo.className = 'file-info';
@@ -1228,7 +911,7 @@
                 showToast('All files cleared', 'success');
             }
 
-            function convertFiles() {
+            async function convertFiles() {
                 if (files.length === 0) {
                     showToast('Please add files to convert', 'error');
                     return;
@@ -1239,14 +922,18 @@
                 progressBar.style.width = '0%';
                 progressText.textContent = 'Processing: 0%';
                 
-                // Simulate conversion process (in a real app, this would be an API call)
+                // Get conversion options
+                const outputFormat = document.querySelector('input[name="outputFormat"]:checked')?.value || '';
+                const zipOutput = document.getElementById('zipOutput')?.checked || false;
+                
+                // Simulate conversion progress
                 let progress = 0;
                 const interval = setInterval(() => {
                     progress += Math.random() * 10;
                     if (progress >= 100) {
                         progress = 100;
                         clearInterval(interval);
-                        conversionComplete();
+                        conversionComplete(outputFormat, zipOutput);
                     }
                     
                     progressBar.style.width = `${progress}%`;
@@ -1254,22 +941,137 @@
                 }, 300);
             }
 
-            function conversionComplete() {
-                // In a real app, this would be the actual converted files from the server
-                // For demo, we'll just simulate it
-                const outputFormat = document.querySelector('input[name="outputFormat"]:checked').value;
-                const zipOutput = document.getElementById('zipOutput').checked;
-                
-                convertedFiles = files.map(file => {
+            async function conversionComplete(outputFormat, zipOutput) {
+                try {
+                    // Perform actual conversion based on tool
+                    switch(currentTool) {
+                        case 'pdf-word':
+                            convertedFiles = await convertPdfToWord(files, outputFormat);
+                            break;
+                        case 'word-pdf':
+                            convertedFiles = await convertWordToPdf(files);
+                            break;
+                        case 'pdf-excel':
+                            convertedFiles = await convertPdfToExcel(files, outputFormat);
+                            break;
+                        case 'excel-pdf':
+                            convertedFiles = await convertExcelToPdf(files);
+                            break;
+                        case 'image-pdf':
+                            convertedFiles = await convertImageToPdf(files);
+                            break;
+                        case 'pdf-image':
+                            convertedFiles = await convertPdfToImage(files, outputFormat);
+                            break;
+                    }
+                    
+                    showDownloadOptions(zipOutput);
+                    showToast('Conversion complete!', 'success');
+                } catch (error) {
+                    console.error('Conversion error:', error);
+                    showToast('Conversion failed. Please try again.', 'error');
+                }
+            }
+
+            async function convertPdfToWord(pdfFiles, outputFormat) {
+                // In a real app, this would call an API to convert PDF to Word
+                // For demo, we'll create simulated Word files
+                return pdfFiles.map(file => {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    const ext = outputFormat === 'doc' ? '.doc' : outputFormat === 'odt' ? '.odt' : '.docx';
+                    
                     return {
-                        name: file.name.replace('.pdf', `.${outputFormat}`),
-                        url: '#',
-                        format: outputFormat
+                        name: `${baseName}_converted${ext}`,
+                        content: `This is a simulated ${ext} file converted from PDF.\nOriginal: ${file.name}`,
+                        type: outputFormat === 'doc' ? 'application/msword' : 
+                              outputFormat === 'odt' ? 'application/vnd.oasis.opendocument.text' :
+                              'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
                     };
                 });
+            }
+
+            async function convertWordToPdf(wordFiles) {
+                // In a real app, this would call an API to convert Word to PDF
+                // For demo, we'll create simulated PDF files
+                return wordFiles.map(file => {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    
+                    return {
+                        name: `${baseName}_converted.pdf`,
+                        content: `This is a simulated PDF file converted from Word.\nOriginal: ${file.name}`,
+                        type: 'application/pdf'
+                    };
+                });
+            }
+
+            async function convertPdfToExcel(pdfFiles, outputFormat) {
+                // In a real app, this would call an API to convert PDF to Excel
+                // For demo, we'll create simulated Excel files
+                return pdfFiles.map(file => {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    const ext = outputFormat === 'csv' ? '.csv' : '.xlsx';
+                    
+                    return {
+                        name: `${baseName}_converted${ext}`,
+                        content: `This is a simulated ${ext} file converted from PDF.\nOriginal: ${file.name}`,
+                        type: outputFormat === 'csv' ? 'text/csv' : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                    };
+                });
+            }
+
+            async function convertExcelToPdf(excelFiles) {
+                // In a real app, this would call an API to convert Excel to PDF
+                // For demo, we'll create simulated PDF files
+                return excelFiles.map(file => {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    
+                    return {
+                        name: `${baseName}_converted.pdf`,
+                        content: `This is a simulated PDF file converted from Excel.\nOriginal: ${file.name}`,
+                        type: 'application/pdf'
+                    };
+                });
+            }
+
+            async function convertImageToPdf(imageFiles) {
+                // In a real app, this would call an API to convert images to PDF
+                // For demo, we'll create simulated PDF files
+                const mergeImages = document.getElementById('mergeImages').checked;
                 
-                showDownloadOptions(zipOutput);
-                showToast('Conversion complete!', 'success');
+                if (mergeImages && imageFiles.length > 1) {
+                    // Create single PDF with all images
+                    return [{
+                        name: 'merged_images.pdf',
+                        content: `This is a simulated PDF file containing ${imageFiles.length} images.`,
+                        type: 'application/pdf'
+                    }];
+                } else {
+                    // Create individual PDFs for each image
+                    return imageFiles.map(file => {
+                        const baseName = file.name.replace(/\.[^/.]+$/, "");
+                        
+                        return {
+                            name: `${baseName}_converted.pdf`,
+                            content: `This is a simulated PDF file converted from image.\nOriginal: ${file.name}`,
+                            type: 'application/pdf'
+                        };
+                    });
+                }
+            }
+
+            async function convertPdfToImage(pdfFiles, outputFormat) {
+                // In a real app, this would call an API to convert PDF to images
+                // For demo, we'll create simulated image files
+                return pdfFiles.map(file => {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    const ext = outputFormat === 'png' ? '.png' : '.jpg';
+                    
+                    return {
+                        name: `${baseName}_converted${ext}`,
+                        content: `This is a simulated ${ext} file converted from PDF.\nOriginal: ${file.name}`,
+                        type: outputFormat === 'png' ? 'image/png' : 'image/jpeg'
+                    };
+                });
             }
 
             function showDownloadOptions(zipOutput) {
@@ -1284,20 +1086,20 @@
                     downloadOptions.appendChild(zipBtn);
                     
                     // Also show individual download options
-                    convertedFiles.forEach(file => {
+                    convertedFiles.forEach((file, index) => {
                         const btn = document.createElement('button');
                         btn.className = 'btn btn-secondary';
-                        btn.innerHTML = `<i class="fas fa-file-word"></i> ${file.name}`;
-                        btn.addEventListener('click', () => downloadFile(file));
+                        btn.innerHTML = `<i class="fas fa-file-download"></i> ${file.name}`;
+                        btn.addEventListener('click', () => downloadFile(file, index));
                         downloadOptions.appendChild(btn);
                     });
                 } else {
                     // Show individual download buttons
-                    convertedFiles.forEach(file => {
+                    convertedFiles.forEach((file, index) => {
                         const btn = document.createElement('button');
                         btn.className = 'btn btn-success';
-                        btn.innerHTML = `<i class="fas fa-file-word"></i> Download ${file.name}`;
-                        btn.addEventListener('click', () => downloadFile(file));
+                        btn.innerHTML = `<i class="fas fa-file-download"></i> Download ${file.name}`;
+                        btn.addEventListener('click', () => downloadFile(file, index));
                         downloadOptions.appendChild(btn);
                     });
                 }
@@ -1305,22 +1107,31 @@
                 downloadSection.style.display = 'block';
             }
 
-            function downloadFile(file) {
-                // In a real app, this would download the actual converted file
-                showToast(`Downloading ${file.name}`, 'success');
-                // Simulate download
-                setTimeout(() => {
-                    showToast(`${file.name} downloaded successfully`, 'success');
-                }, 1500);
+            function downloadFile(file, index) {
+                // Create a blob with the file content
+                const blob = new Blob([file.content], { type: file.type });
+                
+                // Use FileSaver.js to trigger the download
+                saveAs(blob, file.name);
+                
+                showToast(`${file.name} downloaded successfully`, 'success');
             }
 
             function downloadAllAsZip() {
-                showToast('Creating ZIP archive...', 'success');
+                const zip = new JSZip();
                 
-                // In a real app, this would create an actual ZIP file using JSZip
-                setTimeout(() => {
+                // Add all converted files to the ZIP
+                convertedFiles.forEach(file => {
+                    zip.file(file.name, file.content);
+                });
+                
+                // Generate the ZIP file
+                zip.generateAsync({ type: 'blob' }).then(content => {
+                    // Use FileSaver.js to trigger the download
+                    saveAs(content, 'converted_files.zip');
+                    
                     showToast('ZIP archive downloaded successfully', 'success');
-                }, 2000);
+                });
             }
 
             function showToast(message, type) {
@@ -1340,33 +1151,6 @@
                     toast.classList.remove('show');
                 }, 3000);
             }
-
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu');
-            const nav = document.querySelector('nav ul');
-            
-            mobileMenuBtn.addEventListener('click', () => {
-                if (nav.style.display === 'flex') {
-                    nav.style.display = 'none';
-                } else {
-                    nav.style.display = 'flex';
-                    nav.style.flexDirection = 'column';
-                    nav.style.position = 'absolute';
-                    nav.style.top = '100%';
-                    nav.style.right = '20px';
-                    nav.style.background = 'var(--dark)';
-                    nav.style.padding = '20px';
-                    nav.style.borderRadius = '10px';
-                    nav.style.gap = '15px';
-                }
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
-                    nav.style.display = 'none';
-                }
-            });
         });
     </script>
 </body>
